@@ -7,7 +7,7 @@ $ORIGIN olimpo.test.
 $TTL	86400
 
 @	IN	SOA	ns1.olimpo.test. root.olimpo.test. (
-			      1		; Serial
+			      2		; Serial
 			 604800		; Refresh
 			  86400		; Retry
 			2419200		; Expire
@@ -17,5 +17,5 @@ $TTL	86400
 ns1	  IN	A	192.168.57.10
 mercurio  IN    A       192.168.57.11
 
-; Poner alias de apolo
+apolo IN CNAME mercurio
 
