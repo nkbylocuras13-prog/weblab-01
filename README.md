@@ -1,35 +1,20 @@
-# Laboratorio web 1: Sitios virtuales
+# HTTP Lab 1: Virtual Hosts
 
-## Utilización
+Práctica de servidores virtuales por nombre con Apache, utilizando dos máquinas virtuales con Vagrant: un servidor DNS (`ns1`) y un servidor web (`mercurio`).
 
-Ejecutaremos:
+**Autor:** Enrique Olmedo Muñoz
 
-   vagrant up
+---
 
-Tendremos dos máquinas virtuales:
 
-- `dns`
+### 1.Comprobación del DNS
 
-- `web`
+Desde la máquina DNS comprobamos que resuelve el servidor web:
 
-## Contenido
+`vagrant ssh dns -c "dig mercurio.olimpo.test +short"`
 
-Contiene los siguientes archivos:
+Desde la máquina web comprobamos que resuelve el servidor DNS:
 
-- `README.md`, este fichero
+`vagrant ssh web -c "dig ns1.olimpo.test +short"`
 
-- `Vagrantfile`, proyecto de Vagrant
-
-- `apache2-provision.sh` con la provisión del servidor web
-
-- `dns-provision.sh` con la provisión del servidor DNS
-
-Contiene los subdirectorios:
-
-- `files/apolo.olimpo.test` raíz de documentos web de dicho sitio.
-
-- `files/atenea.olimpo.test` raíz de documentos web de dicho sitio.
-
-- `files/mercurio.olimpo.test` configuración servidor web
-
-- `files/ns1.olimpo.test` configuración servidor DNS
+![Comprobación inicial del DNS](caps/digs.png)
