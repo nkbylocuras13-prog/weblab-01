@@ -29,17 +29,12 @@ Se edita `files/ns1.olimpo.test/olimpo.test.dns` y se añade el alias:
 
 También se sube el serial del SOA de `1` a `2` para que BIND note el cambio.
 
-Se aplica con:
 
 `vagrant provision dns`
-
-Comprobación:
 
 `
 vagrant ssh dns -c "dig apolo.olimpo.test +short"
 vagrant ssh web -c "dig apolo.olimpo.test +short"
 `
-
-Salida:
 
 ![dig de apolo](caps/2dig.png)
