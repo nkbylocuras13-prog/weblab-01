@@ -32,10 +32,8 @@ También se sube el serial del SOA de `1` a `2` para que BIND note el cambio.
 
 `vagrant provision dns`
 
-`
-vagrant ssh dns -c "dig apolo.olimpo.test +short"
-vagrant ssh web -c "dig apolo.olimpo.test +short"
-`
+`vagrant ssh dns -c "dig apolo.olimpo.test +short"`
+`vagrant ssh web -c "dig apolo.olimpo.test +short"`
 
 ![dig de apolo](caps/2dig.png)
 
@@ -47,9 +45,9 @@ Los ficheros del sitio están en `files/apolo.olimpo.test/`: `apolo.html`, `apol
 
 Se rellena `apache2-provision.sh` para copiar la configuración, habilitar el sitio y reiniciar Apache:
 
-`cp /vagrant/files/mercurio.olimpo.test/apolo.olimpo.test.conf /etc/apache2/sites-available/
-a2ensite apolo.olimpo.test.conf
-systemctl restart apache2`
+`cp /vagrant/files/mercurio.olimpo.test/apolo.olimpo.test.conf /etc/apache2/sites-available/`
+`a2ensite apolo.olimpo.test.conf`
+`systemctl restart apache2`
 
 `vagrant provision web`
 
@@ -93,9 +91,7 @@ Página de error (`/messages/404.html`):
 
 Logs del sitio:
 
-```bash
-vagrant ssh web -c "ls /var/log/apache2 | grep apolo"
-```
+`vagrant ssh web -c "sudo ls /var/log/apache2 | grep apolo"`
 
 ![Logs de apolo](caps/logapolo.png)
 
@@ -111,9 +107,9 @@ Se sube el serial del SOA de `2` a `3`.
 
 ![atenea dns](caps/dns.png)
 
-`vagrant provision dns
-vagrant ssh dns -c "dig atenea.olimpo.test +short"
-vagrant ssh web -c "dig atenea.olimpo.test +short"`
+`vagrant provision dns`
+`vagrant ssh dns -c "dig atenea.olimpo.test +short"`
+`vagrant ssh web -c "dig atenea.olimpo.test +short"`
 
 ![Resolución de atenea](caps/dig2.png)
 
@@ -125,8 +121,8 @@ Ficheros en `files/atenea.olimpo.test/`: `atenea.html`, `atenea1.txt`, `atenea2.
 
 Se añade al script de provisioning:
 
-`cp /vagrant/files/mercurio.olimpo.test/atenea.olimpo.test.conf /etc/apache2/sites-available/
-a2ensite atenea.olimpo.test.conf`
+`cp /vagrant/files/mercurio.olimpo.test/atenea.olimpo.test.conf /etc/apache2/sites-available/`
+`a2ensite atenea.olimpo.test.conf`
 
 `vagrant provision web`
 
@@ -166,10 +162,6 @@ Directorio `/messages`, error 403:
 
 Logs del sitio:
 
-`vagrant ssh web -c "ls /var/log/apache2 | grep atenea"`
+`vagrant ssh web -c "sudo ls /var/log/apache2 | grep atenea"`
 
 ![Logs de atenea](caps/atlog.png)
-
-## 4. Ficheros entregados
-
-`named.conf.local`, `db.olimpo.test`, `db.192.168.57`, `apolo.olimpo.test.conf`, `atenea.olimpo.test.conf` y `Vagrantfile`.
