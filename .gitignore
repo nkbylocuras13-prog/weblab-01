@@ -1,1 +1,6 @@
 .vagrant/
+.vagrant/
+*.deb
+.vagrant/
+*.deb
+.vagrant/
